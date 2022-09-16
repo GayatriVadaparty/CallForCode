@@ -20,15 +20,15 @@
 }
 
 .glass__form h4 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+  font-family: 'Algerian';
   text-align: center;
   margin: 10px;
-  color: antiquewhite;
+  color: rgb(51, 0, 255);
 }
 
 .glass__form__group {
   margin: 15px 0;
-  color: antiquewhite;
+  color: rgb(0, 0, 0);
 }
 
 .glass__form__input {
@@ -38,52 +38,53 @@
   border: none;
   padding: 10px;
   border-radius: 3px;
-  color: antiquewhite;
+  color: rgb(0,0,0);
   box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
 }
 
 .glass__form__input:focus {
-  background: rgba(255, 255, 255, 0.5);
+  background: #77ede1;
+  opacity: 0.6;
 }
 
 .glass__form__btn {
-  background: #ea2828;
-  border: 1px solid #ea2828;
+  background: #0cf581;
+  border: 1px solid #0cf581;
   border: none;
   outline: none;
   padding: 10px 15px;
   border-radius: 5px;
-  color: #fff;
+  color: rgb(104, 41, 110);
   cursor: pointer;
 }
 
 .glass__form__btn:hover {
   background: transparent;
-  color: #ea2828;
+  color: #77ede1;
   transition: all ease-in-out 0.3s;
 }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #000;
+  color: #77ede1;
 }
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #000;
+  color: rgb(0,0,0);
   opacity: 1;
 }
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #000;
+  color: rgb(0,0,0);
   opacity: 1;
 }
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #000;
+  color: rgb(0,0,0);
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #000;
+  color: rgb(0,0,0);
 }
 
 ::placeholder {
