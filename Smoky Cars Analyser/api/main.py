@@ -25,38 +25,52 @@ app.add_middleware(
 )
 
 # Loading up the trained model
-model = pickle.load(open('../model/hireable.pkl', 'rb'))
+model = pickle.load(open('../model/CEModelx.pkl', 'rb'))
 
 # Defining the model input types
 class Candidate(BaseModel):
-    gender: int
-    bsc: float
-    workex: int
-    etest_p: float
-    msc : float
+    engSize : float
+    cylinders :int
+    Transmission : int
+    Gears : int
+    ftype : int
+    fcc :float
+    fch :float
+    fcco1 :float
+    fcco2 :float
+
 
 # Setting up the home route
 @app.get("/")
 def read_root():
-    return {"data": "Welcome to online employee hireability prediction model"}
+    return {"data": "Welcome to Smoky Cars Analzser"}
 
 # Setting up the prediction route
 @app.post("/prediction/")
 async def get_predict(data: Candidate):
     sample = [[
-        data.gender,
-        data.bsc,
-        data.workex,
-        data.etest_p,
-        data.msc
+        data.engSize,
+        data.cylinders,
+        data.Transmission,
+        data.Gears,
+        data.ftype,
+        data.fcc,
+        data.fch,
+        data.fcco1,
+        data.fcco2,
     ]]
 
-    hired = model.predict(sample).tolist()[0]
+    emitted = model.predict(sample).tolist()[0]
+    if(emitted>256.42222):
+        valid=0
+    else:
+        valid=1
 
     return {
         "data": {
-            'prediction': hired,
-            'interpretation': 'Candidate can be hired.' if hired == 1 else 'Candidate can not be hired.'
+            
+            'prediction': valid,
+            'interpretation': f'The car is good to go, the carbon emission is {emitted}' if valid == 1 else f'Sorry!!! It is high time you change your car, the carbon emission is {emitted}'
         }
     }
 
